@@ -11,6 +11,8 @@ function my_str_reverse(string $string) : string {
         $i++;
     }
 
+    return $reverseWord;
+
 }
 
 my_str_reverse('Hello');
