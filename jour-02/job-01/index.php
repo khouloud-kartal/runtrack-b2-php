@@ -5,7 +5,7 @@ function find_all_students() : array {
     try {
         $conn = new PDO('mysql:host=localhost;dbname=lp_official', 'root', '');
     } catch (PDOException $e) {
-        var_dump($e);
+        echo $e->getMessage();
     }
 
     $req = $conn->prepare("SELECT * FROM student");
