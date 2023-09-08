@@ -8,8 +8,10 @@ class Student{
     private ?string $fullname;
     private ?datetime $birthdate;
     private ?string $gender;
+    public $conn;
 
     public function __construct($id = null, $grade_id = null, $email = null, $fullname = null, $birthdate = null, $gender = null){
+
         $this->id = $id;
         $this->grade_id = $grade_id;
         $this->email = $email;
