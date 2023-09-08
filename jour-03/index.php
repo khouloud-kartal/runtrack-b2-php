@@ -43,3 +43,24 @@ $floor->name = 'Rez-de-chaussée';
 $floor->level = 0;
 
 //var_dump($student, $grade, $room, $floor);
+
+$student->setId(1);
+$student->setGradeId(1);
+$student->setEmail('email@email.com');
+$student->setFullName('Terry Cristinelli');
+$student->setBirthDate(new datetime('1990-01-18'));
+$student->setGender('male');
+
+$grade->setId(1);
+$grade->setRoomId(8);
+$grade->setName('Bachelor 1');
+$grade->setYear(new dateTime('2023-01-09'));
+
+$room->setId(1);
+$room->setFloorId(1);
+$room->setName('RDC Food and Drinks');
+$room->setCapacity(90);
+
+$floor->setId(1);
+$floor->setName('Rez-de-chaussée');
+$floor->setLevel(1);
