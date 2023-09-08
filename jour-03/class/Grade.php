@@ -14,6 +14,10 @@ class Grade{
         $this->year = $year;
     }
 
+    public function getStudent() : ?array{
+        
+    }
+
     /////////////////////////// geters ///////////////////////////
 
     public function getId(){
