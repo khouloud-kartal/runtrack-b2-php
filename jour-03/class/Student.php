@@ -9,9 +9,7 @@ class Student{
     public ?datetime $birthdate;
     public ?string $gender;
 
-    // 
-
-    public function __construct($id, $grade_id, $email, $fullname, $birthdate, $gender){
+    public function __construct($id = null, $grade_id = null, $email = null, $fullname = null, $birthdate = null, $gender = null){
         $this->id = $id;
         $this->grade_id = $grade_id;
         $this->email = $email;
