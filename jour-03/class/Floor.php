@@ -12,6 +12,29 @@ class Floor{
         $this->level = $level;
     }
 
+    public function getRooms() : ?array{
+        $conn = connect(); 
+        $req = $conn->prepare("SELECT * FROM room WHERE floor_id = :id");
+        $req->execute([':id' => $this->id]);
+        $data = $req->fetchAll(\PDO::FETCH_ASSOC);
+
+        $rooms = [];
+
+        foreach ($data as $room) {
+
+            $rooms[] = new Room(
+                $room['id'], 
+                $room['floor_id'], 
+                $room['name'],
+                $room['capacity']
+            );
+
+        }
+        
+        return $rooms;
+        
+    }
+
     /////////////////////////// geters ///////////////////////////
 
     public function getId(){

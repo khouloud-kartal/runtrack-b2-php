@@ -14,6 +14,29 @@ class Room{
         $this->capacity = $capacity;
     }
 
+    public function getGrades() : ?array{
+        $conn = connect(); 
+        $req = $conn->prepare("SELECT * FROM grade WHERE room_id = :id");
+        $req->execute([':id' => $this->id]);
+        $data = $req->fetchAll(\PDO::FETCH_ASSOC);
+
+        $grades = [];
+
+        foreach ($data as $grade) {
+
+            $grades[] = new Grade(
+                $grade['id'], 
+                $grade['room_id'], 
+                $grade['name'],
+                new DateTime($grade['year'])
+            );
+
+        }
+        
+        return $grades;
+        
+    }
+
     /////////////////////////// geters ///////////////////////////
 
     public function getId(){

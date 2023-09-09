@@ -66,6 +66,16 @@ require_once './functions.php';
 // $floor->setName('Rez-de-chaussée');
 // $floor->setLevel(1);
 
-$grade = findOneGrade(2);
+// $grade = findOneGrade(2);
 
-$students = $grade->getStudents();
+// $students = $grade->getStudents();
+
+
+// $room = findOneRoom(9);
+
+// $grades = $room->getGrades();
+
+$floor = findOneFloor(3);
+
+$rooms = $floor->getRooms();
+
