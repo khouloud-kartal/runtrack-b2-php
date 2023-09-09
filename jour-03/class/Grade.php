@@ -14,7 +14,27 @@ class Grade{
         $this->year = $year;
     }
 
-    public function getStudent() : ?array{
+    public function getStudents() : ?array{
+        $conn = connect(); 
+        $req = $conn->prepare("SELECT * FROM student WHERE grade_id = :id");
+        $req->execute([':id' => $this->id]);
+        $data = $req->fetchAll(\PDO::FETCH_ASSOC);
+
+        $students = [];
+        foreach ($data as $student) {
+
+            $students[] = new Student(
+                $student['id'], 
+                $student['grade_id'], 
+                $student['email'],
+                $student['fullname'],
+                new DateTime($student['birthdate']),
+                $student['gender']
+            );
+
+        }
+        
+        return $students;
         
     }
 
